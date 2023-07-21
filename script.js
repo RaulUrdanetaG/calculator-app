@@ -21,8 +21,12 @@ const keyAdd = document.getElementById('add');
 const keyEqual = document.getElementById('equal');
 const keyDot = document.getElementById('dot');
 
-let currentNumber = 0;
+let firstNumber = 0;
+let secondNumber = 0;
+let result = 0;
 let dotCounter = 0;
+let operationMode = '';
+
 
 key1.onclick = () => appendNumber(1);
 key2.onclick = () => appendNumber(2);
@@ -39,6 +43,11 @@ keyDot.onclick = () => appendNumber('.')
 keyDel.onclick = () => removeNumber();
 keyAc.onclick = () => clearScreen();
 
+keyAdd.onclick = () => setOperation('add');
+keySub.onclick = () => setOperation('sub');
+keyMult.onclick = () => setOperation('multiply');
+keyDiv.onclick = () => setOperation('division');
+keyEqual.onclick = () => equal();
 
 function add(addNumber1, addNumber2) {
     return addNumber1 + addNumber2;
@@ -56,16 +65,307 @@ function division(divNumber1, divNumber2) {
     return divNumber1 / divNumber2;
 };
 
+function setOperation(operation) {
+    if (operation === 'add') {
+        if (operationMode === 'add') {
+            firstNumber = getLowerScreenNumber();
+            secondNumber = getUpperScreenNumber();
+            result = parseFloat(add(firstNumber, secondNumber).toFixed(4));
+            upperScreen.innerHTML = `${result} +`;
+            lowerScreen.innerHTML = `0`;
+            dotCounter = 0;
+        } else if (operationMode === 'sub') {
+            firstNumber = getUpperScreenNumber();
+            secondNumber = getLowerScreenNumber();
+            result = parseFloat(sub(firstNumber, secondNumber).toFixed(4));
+            upperScreen.innerHTML = `${result} +`;
+            lowerScreen.innerHTML = `0`;
+            dotCounter = 0;
+        } else if (operationMode === 'multiply') {
+            firstNumber = getLowerScreenNumber();
+            secondNumber = getUpperScreenNumber();
+            result = parseFloat(multiply(firstNumber, secondNumber).toFixed(4));
+            upperScreen.innerHTML = `${result} +`;
+            lowerScreen.innerHTML = `0`;
+            dotCounter = 0;
+        } else if (operationMode === 'division') {
+            firstNumber = getUpperScreenNumber();
+            secondNumber = getLowerScreenNumber();
+            result = parseFloat(division(firstNumber, secondNumber).toFixed(4));
+            if (result === Infinity) {
+                lowerScreen.innerHTML = 'ERROR';
+                upperScreen.innerHTML = '';
+                firstNumber = 0;
+                secondNumber = 0;
+                operationMode = '';
+                result = '';
+                dotCounter = 0;
+            } else if (isNaN(result)) {
+                lowerScreen.innerHTML = 'ERROR';
+                upperScreen.innerHTML = '';
+                firstNumber = 0;
+                secondNumber = 0;
+                operationMode = '';
+                result = '';
+                dotCounter = 0;
+            } else {
+                upperScreen.innerHTML = `${result} +`;
+                lowerScreen.innerHTML = `0`;
+                dotCounter = 0;
+            }
+        } else {
+            firstNumber = getLowerScreenNumber();
+            result = parseFloat(add(firstNumber, secondNumber).toFixed(4));
+            upperScreen.innerHTML = `${result} +`;
+            lowerScreen.innerHTML = `0`;
+            dotCounter = 0;
+        }
+        operationMode = 'add';
+    } else if (operation === 'sub') {
+        if (operationMode === 'add') {
+            firstNumber = getLowerScreenNumber();
+            secondNumber = getUpperScreenNumber();
+            result = parseFloat(add(firstNumber, secondNumber).toFixed(4));
+            upperScreen.innerHTML = `${result} −`;
+            lowerScreen.innerHTML = `0`;
+            dotCounter = 0;
+        } else if (operationMode === 'sub') {
+            firstNumber = getUpperScreenNumber();
+            secondNumber = getLowerScreenNumber();
+            result = parseFloat(sub(firstNumber, secondNumber).toFixed(4));
+            upperScreen.innerHTML = `${result} −`;
+            lowerScreen.innerHTML = `0`;
+            dotCounter = 0;
+        } else if (operationMode === 'multiply') {
+            firstNumber = getLowerScreenNumber();
+            secondNumber = getUpperScreenNumber();
+            result = parseFloat(multiply(firstNumber, secondNumber).toFixed(4));
+            upperScreen.innerHTML = `${result} −`;
+            lowerScreen.innerHTML = `0`;
+            dotCounter = 0;
+        } else if (operationMode === 'division') {
+            firstNumber = getUpperScreenNumber();
+            secondNumber = getLowerScreenNumber();
+            result = parseFloat(division(firstNumber, secondNumber).toFixed(4));
+            if (result === Infinity) {
+                lowerScreen.innerHTML = 'ERROR';
+                upperScreen.innerHTML = '';
+                firstNumber = 0;
+                secondNumber = 0;
+                operationMode = '';
+                result = '';
+                dotCounter = 0;
+            } else if (isNaN(result)) {
+                lowerScreen.innerHTML = 'ERROR';
+                upperScreen.innerHTML = '';
+                firstNumber = 0;
+                secondNumber = 0;
+                operationMode = '';
+                result = '';
+                dotCounter = 0;
+            } else {
+                upperScreen.innerHTML = `${result} +`;
+                lowerScreen.innerHTML = `0`;
+                dotCounter = 0;
+            }
+        } else {
+            firstNumber = getLowerScreenNumber();
+            result = parseFloat(add(firstNumber, secondNumber).toFixed(4));
+            upperScreen.innerHTML = `${result} −`;
+            lowerScreen.innerHTML = `0`;
+            dotCounter = 0;
+        }
+        operationMode = 'sub';
+    } else if (operation === 'multiply') {
+        if (operationMode === 'add') {
+            firstNumber = getLowerScreenNumber();
+            secondNumber = getUpperScreenNumber();
+            result = parseFloat(add(firstNumber, secondNumber).toFixed(4));
+            upperScreen.innerHTML = `${result} ×`;
+            lowerScreen.innerHTML = `0`;
+            dotCounter = 0;
+        } else if (operationMode === 'sub') {
+            firstNumber = getUpperScreenNumber();
+            secondNumber = getLowerScreenNumber();
+            result = parseFloat(sub(firstNumber, secondNumber).toFixed(4));
+            upperScreen.innerHTML = `${result} ×`;
+            lowerScreen.innerHTML = `0`;
+            dotCounter = 0;
+        } else if (operationMode === 'multiply') {
+            firstNumber = getLowerScreenNumber();
+            secondNumber = getUpperScreenNumber();
+            result = parseFloat(multiply(firstNumber, secondNumber).toFixed(4));
+            upperScreen.innerHTML = `${result} ×`;
+            lowerScreen.innerHTML = `0`;
+            dotCounter = 0;
+        } else if (operationMode === 'division') {
+            firstNumber = getUpperScreenNumber();
+            secondNumber = getLowerScreenNumber();
+            result = parseFloat(division(firstNumber, secondNumber).toFixed(4));
+            if (result === Infinity) {
+                upperScreen.innerHTML = '';
+                lowerScreen.innerHTML = 'ERROR';
+                firstNumber = 0;
+                secondNumber = 0;
+                operationMode = '';
+                result = '';
+                dotCounter = 0;
+            } else if (isNaN(result)) {
+                lowerScreen.innerHTML = 'ERROR';
+                upperScreen.innerHTML = '';
+                firstNumber = 0;
+                secondNumber = 0;
+                operationMode = '';
+                result = '';
+                dotCounter = 0;
+            } else {
+                upperScreen.innerHTML = `${result} +`;
+                lowerScreen.innerHTML = `0`;
+                dotCounter = 0;
+            }
+        } else {
+            firstNumber = getLowerScreenNumber();
+            result = parseFloat(add(firstNumber, secondNumber).toFixed(4));
+            upperScreen.innerHTML = `${result} ×`;
+            lowerScreen.innerHTML = `0`;
+            dotCounter = 0;
+        }
+        operationMode = 'multiply';
+    } else if (operation === 'division') {
+        if (operationMode === 'add') {
+            firstNumber = getLowerScreenNumber();
+            secondNumber = getUpperScreenNumber();
+            result = parseFloat(add(firstNumber, secondNumber).toFixed(4));
+            upperScreen.innerHTML = `${result} ÷`;
+            lowerScreen.innerHTML = `0`;
+            dotCounter = 0;
+        } else if (operationMode === 'sub') {
+            firstNumber = getUpperScreenNumber();
+            secondNumber = getLowerScreenNumber();
+            result = parseFloat(sub(firstNumber, secondNumber).toFixed(4));
+            upperScreen.innerHTML = `${result} ÷`;
+            lowerScreen.innerHTML = `0`;
+            dotCounter = 0;
+        } else if (operationMode === 'multiply') {
+            firstNumber = getLowerScreenNumber();
+            secondNumber = getUpperScreenNumber();
+            result = parseFloat(multiply(firstNumber, secondNumber).toFixed(4));
+            upperScreen.innerHTML = `${result} ÷`;
+            lowerScreen.innerHTML = `0`;
+            dotCounter = 0;
+        } else if (operationMode === 'division') {
+            firstNumber = getUpperScreenNumber();
+            secondNumber = getLowerScreenNumber();
+            result = parseFloat(division(firstNumber, secondNumber).toFixed(4));
+            if (result === Infinity) {
+                lowerScreen.innerHTML = 'ERROR';
+                upperScreen.innerHTML = '';
+                firstNumber = 0;
+                secondNumber = 0;
+                operationMode = '';
+                result = '';
+                dotCounter = 0;
+            } else if (isNaN(result)) {
+                lowerScreen.innerHTML = 'ERROR';
+                upperScreen.innerHTML = '';
+                firstNumber = 0;
+                secondNumber = 0;
+                operationMode = '';
+                result = '';
+                dotCounter = 0;
+            } else {
+                upperScreen.innerHTML = `${result} ÷`;
+                lowerScreen.innerHTML = `0`;
+                dotCounter = 0;
+            }
+        } else {
+            firstNumber = getLowerScreenNumber();
+            result = parseFloat(add(firstNumber, secondNumber).toFixed(4));
+            upperScreen.innerHTML = `${result} ÷`;
+            lowerScreen.innerHTML = `0`;
+            dotCounter = 0;
+            if (result === Infinity) {
+                lowerScreen.innerHTML = 'ERROR';
+                upperScreen.innerHTML = '';
+                firstNumber = 0;
+                secondNumber = 0;
+                operationMode = '';
+                result = '';
+                dotCounter = 0;
+            } else if (isNaN(result)) {
+                lowerScreen.innerHTML = 'ERROR';
+                upperScreen.innerHTML = '';
+                firstNumber = 0;
+                secondNumber = 0;
+                operationMode = '';
+                result = '';
+                dotCounter = 0;
+            } else {
+                upperScreen.innerHTML = `${result} ÷`;
+                lowerScreen.innerHTML = `0`;
+                dotCounter = 0;
+            }
+        }
+        operationMode = 'division';
+    }
+    console.log(operationMode)
+}
+
+function equal() {
+    if (operationMode === 'add') {
+        firstNumber = getLowerScreenNumber();
+        secondNumber = getUpperScreenNumber();
+        result = parseFloat(add(firstNumber, secondNumber).toFixed(4));
+        upperScreen.innerHTML = `${secondNumber} + ${firstNumber} =`;
+        lowerScreen.innerHTML = `${result}`;
+        dotCounter = 0;
+        operationMode = '';
+        secondNumber = 0;
+    } else if (operationMode === 'sub') {
+        firstNumber = getUpperScreenNumber();
+        secondNumber = getLowerScreenNumber();
+        result = parseFloat(sub(firstNumber, secondNumber).toFixed(4));
+        upperScreen.innerHTML = `${secondNumber} − ${firstNumber} =`;
+        lowerScreen.innerHTML = `${result}`;
+        dotCounter = 0;
+        operationMode = '';
+        secondNumber = 0;
+    } else if (operationMode === 'multiply') {
+        firstNumber = getLowerScreenNumber();
+        secondNumber = getUpperScreenNumber();
+        result = parseFloat(multiply(firstNumber, secondNumber).toFixed(4));
+        upperScreen.innerHTML = `${secondNumber} × ${firstNumber} =`;
+        lowerScreen.innerHTML = `${result}`;
+        dotCounter = 0;
+        operationMode = '';
+        secondNumber = 0;
+    } else if (operationMode === 'division') {
+        firstNumber = getLowerScreenNumber();
+        secondNumber = getUpperScreenNumber();
+        result = parseFloat(division(secondNumber, firstNumber).toFixed(4));
+        upperScreen.innerHTML = `${secondNumber} ÷ ${firstNumber} =`;
+        lowerScreen.innerHTML = ` ${result}`;
+        dotCounter = 0;
+        operationMode = '';
+        secondNumber = 0;
+    }
+}
+
 function getCurrentString() {
     return lowerScreen.innerHTML;
-}
+};
 
-function getCurrentNumber() {
+function getLowerScreenNumber() {
     return Number(lowerScreen.innerHTML);
-}
+};
+
+function getUpperScreenNumber() {
+    const numbersToRemove = ['+', '−', '×', '÷']
+    return Number(upperScreen.innerHTML.split('').filter((num) => !numbersToRemove.includes(num)).join(''));
+};
 
 function appendNumber(key) {
-    if (getCurrentString() === '0') {
+    if (getCurrentString() === '0' || getCurrentString() === 'ERROR') {
         if (key === '.') {
             lowerScreen.innerHTML = '0';
         } else {
@@ -83,7 +383,7 @@ function appendNumber(key) {
         }
 
     }
-}
+};
 
 function removeNumber() {
     if (getCurrentString().length == 1) {
@@ -96,10 +396,13 @@ function removeNumber() {
         }
         lowerScreen.innerHTML = current.join("");
     }
-}
+};
 
 function clearScreen() {
     upperScreen.innerHTML = '';
     lowerScreen.innerHTML = '0';
+    firstNumber = 0;
+    secondNumber = 0;
+    operationMode = '';
     dotCounter = 0;
-}
+};
