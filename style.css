@@ -16,11 +16,11 @@ body {
     justify-content: center;
 }
 
-.flex{
+.flex {
     display: flex;
 }
 
-.calculator-body{
+.calculator-body {
     background-color: black;
     border: 3px solid #B6C5D8;
     border-radius: 50px;
@@ -29,26 +29,21 @@ body {
     min-width: 320px;
     min-height: 650px;
     justify-content: flex-end;
-    /* box-shadow: 0px 0px 5px darkgray; */
 }
 
-.screen{
+.screen {
     flex-direction: column;
     background-color: black;
     width: 250px;
-    /* height: 100px; */
-    /* border: 2px solid white; */
     border-radius: 10px;
-    /* margin-top: 10%; */
     align-self: center;
     color: white;
 }
 
 .upper-screen,
-.lower-screen{
+.lower-screen {
     margin: 0;
     align-self: flex-end;
-    /* justify-self: flex-start; */
     font-size: 60px;
     text-align: end;
     font-weight: 200;
@@ -56,21 +51,20 @@ body {
     overflow-wrap: break-word
 }
 
-#grid{
+#grid {
     display: grid;
     min-height: 340px;
     min-width: 270px;
     margin: 0px auto;
     gap: 5px;
-    grid-template-columns: repeat(4,1fr);
-    /* padding: 20px; */
+    grid-template-columns: repeat(4, 1fr);
     padding-top: 0;
     margin-bottom: 20px;
     align-items: center;
     justify-content: center;
 }
 
-.key{
+.key {
     border: none;
     width: 60px;
     height: 60px;
@@ -83,31 +77,30 @@ body {
     vertical-align: middle;
 }
 
-.key:hover{
+.key:hover {
     cursor: pointer;
 }
 
-.orange:active{
+.orange:active {
     background-color: #D2CCD6;
     color: #F69906;
     transition: 0.07s;
 }
 
-.darkgrey:active{
+.darkgrey:active {
     background-color: #736F7A;
-    /* color: #F69906; */
     transition: 0.07s;
 }
 
-.lightgrey:active{
+.lightgrey:active {
     background-color: #B6BDDE;
     transition: 0.07s;
 }
 
-.special{
-    grid-column-start: span 2;  
+.special {
+    grid-column-start: span 2;
     border: none;
-    border-radius: 50px; 
+    border-radius: 50px;
     height: 60px;
     width: auto;
     font-size: 1.7rem;
@@ -115,27 +108,27 @@ body {
     font-family: 'Inter';
 }
 
-.darkgrey{
+.darkgrey {
     background-color: #313131;
     color: white;
 }
 
-.orange{
+.orange {
     background-color: #F69906;
     color: white;
     font-size: 2.2rem;
 }
 
-.lightgrey{
+.lightgrey {
     background-color: #9F9F9F;
 }
 
-.n0{
+.n0 {
     text-align: left;
     padding-left: 20px;
 }
 
-hr{
+hr {
     margin-bottom: 20px;
     width: 100px;
     border-radius: 10px;
