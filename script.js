@@ -12,7 +12,9 @@ const minutes = time.getMinutes();
 const amPM = hour >= 12 ? 'pm' : 'am';
 const hour12 = hour % 12 || 12;
 
-timeText.innerHTML = `${hour12}:${minutes} ${amPM}`;
+if (minutes < 10) { timeText.innerHTML = `${hour12}:0${minutes} ${amPM}`;}
+else {timeText.innerHTML = `${hour12}:${minutes} ${amPM}`;}
+
 
 let upperScreenNumber = 0;
 let lowerScreenNumber = 0;
