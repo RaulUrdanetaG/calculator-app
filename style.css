@@ -13,7 +13,8 @@ body {
     height: 100%;
     background-color: #868686;
     align-items: center;
-    justify-content: center;
+    margin: 0;
+    flex-direction: column;
 }
 
 .flex {
@@ -25,7 +26,8 @@ body {
     border: 3px solid #B6C5D8;
     border-radius: 50px;
     flex-direction: column;
-    margin: 20% 20%;
+    margin: 10px 20%;
+    margin-bottom: 6px;
     min-width: 320px;
     min-height: 650px;
     justify-content: space-between;
@@ -35,19 +37,17 @@ body {
 .noti-bar{
     justify-content: space-between;
     align-items: center;
-    flex: 0;
-    justify-self: flex-start;
+    font-size: 17px;
+    margin: 2px 30px;
+}
+
+.noti-bar img{
+    width: 70px;
 }
 
 .operation{
     display: flex;
     flex-direction: column;
-}
-
-.screen,
-#grid,
-hr{
-    flex: 0 0 ;
 }
 
 .screen {
@@ -155,4 +155,27 @@ hr {
     border-radius: 10px;
     height: 2px;
     background-color: white;
+}
+
+.footer {
+    height: 24px;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.footer h3{
+    margin: 0;
+    text-decoration: none;
+}
+.footer img {
+    height: 24px;
+    width: auto;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
 }
