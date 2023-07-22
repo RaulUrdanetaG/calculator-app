@@ -28,7 +28,26 @@ body {
     margin: 20% 20%;
     min-width: 320px;
     min-height: 650px;
-    justify-content: flex-end;
+    justify-content: space-between;
+    color: white;
+}
+
+.noti-bar{
+    justify-content: space-between;
+    align-items: center;
+    flex: 0;
+    justify-self: flex-start;
+}
+
+.operation{
+    display: flex;
+    flex-direction: column;
+}
+
+.screen,
+#grid,
+hr{
+    flex: 0 0 ;
 }
 
 .screen {
@@ -37,6 +56,7 @@ body {
     width: 250px;
     border-radius: 10px;
     align-self: center;
+    justify-self: flex-end;
     color: white;
 }
 
@@ -62,6 +82,7 @@ body {
     margin-bottom: 20px;
     align-items: center;
     justify-content: center;
+    justify-self: flex-end;
 }
 
 .key {

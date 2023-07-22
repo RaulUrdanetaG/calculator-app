@@ -3,6 +3,16 @@ const keyOperations = document.querySelectorAll('.key-operation');
 const keySpecial = document.querySelectorAll('.key-special');
 const upperScreen = document.querySelector('.upper-screen');
 const lowerScreen = document.querySelector('.lower-screen');
+const timeText = document.getElementById('hour');
+const time = new Date();
+
+const hour = time.getHours();
+const minutes = time.getMinutes();
+
+const amPM = hour >= 12 ? 'pm' : 'am';
+const hour12 = hour % 12 || 12;
+
+timeText.innerHTML = `${hour12}:${minutes} ${amPM}`;
 
 let upperScreenNumber = 0;
 let lowerScreenNumber = 0;

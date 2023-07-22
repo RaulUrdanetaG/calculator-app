@@ -8,31 +8,39 @@
 </head>
 <body class="flex">
     <div class="calculator-body flex">
-        <div class="screen flex">
-            <h3 class="upper-screen"></h3>
-            <h3 class="lower-screen">0</h3>
+        <div class="noti-bar flex">
+            <h6 id="hour">9:00</h6>
+            <div class="icons">
+                <img src="./images/topIcons.png" alt="battery-wifi-data icons">
+            </div>
         </div>
-        <div class="keys" id="grid">
-            <button class="key special lightgrey" id="del">DEL</button>
-            <button class="key lightgrey" id="ac">AC</button>
-            <button class="key orange" id="divisor">÷</button>
-            <button class="key darkgrey" id="n7">7</button>
-            <button class="key darkgrey" id="n8">8</button>
-            <button class="key darkgrey" id="n9">9</button>
-            <button class="key orange" id="mult">×</button>
-            <button class="key darkgrey" id="n4">4</button>
-            <button class="key darkgrey" id="n5">5</button>
-            <button class="key darkgrey" id="n6">6</button>
-            <button class="key orange" id="sub">−</button>
-            <button class="key darkgrey" id="n1">1</button>
-            <button class="key darkgrey" id="n2">2</button>
-            <button class="key darkgrey" id="n3">3</button>
-            <button class="key orange" id="add">+</button>
-            <button class="key special darkgrey" id="n0">0</button>
-            <button class="key darkgrey" id="dot">.</button>
-            <button class="key orange" id="equal">=</button>
+        <div class="operation">
+            <div class="screen flex">
+                <h3 class="upper-screen"></h3>
+                <h3 class="lower-screen">0</h3>
+            </div>
+            <div class="keys" id="grid">
+                <button class="key special lightgrey key-operation" id="del">DEL</button>
+                <button class="key lightgrey key-operation" id="ac">AC</button>
+                <button class="key orange key-operation" id="divisor">÷</button>
+                <button class="key darkgrey key-number" id="n7">7</button>
+                <button class="key darkgrey key-number" id="n8">8</button>
+                <button class="key darkgrey key-number" id="n9">9</button>
+                <button class="key orange key-operation" id="mult">×</button>
+                <button class="key darkgrey key-number" id="n4">4</button>
+                <button class="key darkgrey key-number" id="n5">5</button>
+                <button class="key darkgrey key-number" id="n6">6</button>
+                <button class="key orange key-operation" id="sub">−</button>
+                <button class="key darkgrey key-number" id="n1">1</button>
+                <button class="key darkgrey key-number" id="n2">2</button>
+                <button class="key darkgrey key-number" id="n3">3</button>
+                <button class="key orange key-operation" id="add">+</button>
+                <button class="key special darkgrey key-number" id="n0">0</button>
+                <button class="key darkgrey key-number" id="dot">.</button>
+                <button class="key orange key-operation" id="equal">=</button>
+            </div>
+            <hr>
         </div>
-        <hr>
     </div>
     <script src="./script.js"></script>
 </body>
