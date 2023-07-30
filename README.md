@@ -13,3 +13,5 @@
 - Used a buffer for the first time to store the previous operation symbol.
 - Used array methods like filter, join or pop for the first time.
 - Used string methods like split.
+
+[Live Preview](https://raulurdanetag.github.io/calculator-app/) 👈
